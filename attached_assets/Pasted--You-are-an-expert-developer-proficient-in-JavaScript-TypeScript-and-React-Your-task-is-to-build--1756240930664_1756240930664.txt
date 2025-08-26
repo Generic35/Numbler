@@ -1,0 +1,49 @@
+
+You are an expert developer proficient in JavaScript, TypeScript, and React. Your task is to build a minimal web application called Mathler, a math-based puzzle game similar to Wordle but with equations. The user has 6 guesses to find a daily equation that equals a target number using digits (0-9) and operators (+, -, *, /). Focus on a simple Minimum Viable Product (MVP) with core game functionality, implementing only Phases 1 and 2 as described below. Generate complete, runnable code suitable for Replit, using TypeScript, React, and Tailwind CSS for styling. Ensure it’s a single-page application (SPA) with basic, functional UX supporting mouse and keyboard input. Keep the implementation lightweight, with minimal dependencies and production-ready error handling.
+Key Game Rules
+
+Equations use digits (0-9) and operators (+, -, *, /).
+Numbers and operators can appear multiple times.
+Order of operations applies (* and / before + and -).
+Accept commutative solutions (e.g., 1+515 equals 155+1).
+After each guess (in Phase 2), show tile colors:
+Green: Correct character in correct position.
+Yellow: Character in equation but wrong position.
+Grey: Character not in equation.
+
+
+Users get 6 guesses per day.
+Use a single hardcoded puzzle from this Gist: https://gist.github.com/fredericboivin/79520252fc89cf861485f88d6492c78d (e.g., “1+2+3” for target 6).
+
+Development Phases
+Phase 1: Core Game Board + Input Handling
+
+Build a basic React app with a grid UI (6 rows for guesses, columns based on equation length, e.g., 5 for “1+2+3”).
+Support keyboard input (digits 0-9, operators +, -, *, /, enter to submit, backspace to delete) and a simple on-screen keypad for mouse clicks.
+Use Tailwind CSS for minimal styling (e.g., grid of squares for each character).
+Display the target number (e.g., “Find an equation that equals 6”).
+Allow users to input guesses into the current row, with basic validation (e.g., only allow digits and operators, match equation length of 5).
+No feedback, win/loss logic, or local storage—just render the input in the grid.
+
+Phase 2: Feedback Coloring + Equation Evaluation
+
+Add logic to evaluate guesses against the hardcoded solution equation (“1+2+3” for target 6) using math.js for safe evaluation.
+Implement tile coloring:
+Green: Correct character in correct position.
+Yellow: Character in equation but wrong position.
+Grey: Character not in equation.
+
+
+Handle commutative solutions (e.g., 1+2+3 equals 3+2+1 by evaluating both).
+Add basic win/loss detection (win if guess equals target and matches solution structure; lose after 6 guesses).
+Show a simple alert for win/loss.
+Keep styling minimal, no animations.
+
+Testing
+
+Include a minimal Jest test suite for Phase 2 logic (equation evaluation, tile coloring).
+Test one function per phase (e.g., input validation in Phase 1, evaluateEquation and getTileColors in Phase 2).
+Mock puzzle data if needed.
+Aim for basic coverage of critical logic.
+
+
