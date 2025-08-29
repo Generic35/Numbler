@@ -3,6 +3,8 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { DynamicContextProvider, DynamicWidget } from "@dynamic-labs/sdk-react-core";
+import { dynamicConfig } from "./lib/dynamic-config";
 import Mathler from "@/pages/mathler";
 import NotFound from "@/pages/not-found";
 
@@ -17,12 +19,15 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <DynamicContextProvider settings={dynamicConfig}>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+          <DynamicWidget />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </DynamicContextProvider>
   );
 }
 

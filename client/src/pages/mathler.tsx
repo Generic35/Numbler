@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { GameBoard } from '@/components/game-board';
 import { Keypad } from '@/components/keypad';
 import { useToast } from '@/hooks/use-toast';
+import { WalletConnect } from '@/components/wallet-connect';
 import {
   GameState,
   TARGET_NUMBER,
@@ -99,7 +100,11 @@ export default function Mathler() {
     <div className="container mx-auto px-4 py-8 max-w-lg" data-testid="mathler-game">
       {/* Game Header */}
       <header className="text-center mb-8" data-testid="game-header">
-        <h1 className="text-3xl font-bold mb-4">Mathler</h1>
+        <div className="flex justify-between items-center mb-4">
+          <div></div>
+          <h1 className="text-3xl font-bold">Mathler</h1>
+          <WalletConnect />
+        </div>
         <div className="bg-card border border-border rounded-lg p-4 shadow-sm">
           <p className="text-muted-foreground mb-2">Find an equation that equals</p>
           <div className="text-4xl font-bold text-primary" data-testid="target-number">
